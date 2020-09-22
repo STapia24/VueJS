@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Actividad 3 Vue</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./cards.html">Cards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./slider.html">Sliders</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="container" style="margin-bottom: 30px;">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;" id="exercise">
+                <img src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt5e1d43d2b13e70c7/5f3c847babb6922b67514bfa/TFT_Fates_Header_English_Banner.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"> More about the videogames I like </h5>
+                  <p class="card-text">The games I currently play are:
+                    <ul><li>League of Legends</li><li> Teamfight Tactics</li><li> Valorant </li></ul></p>
+
+                </div>
+              </div>
+        </div>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Go-home-2.svg/1200px-Go-home-2.svg.png?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"> More about me </h5>
+                  <p class="card-text">More thing in my home page</p>
+                  <a href="./index.html" class="btn btn-primary">Home</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            value: 0,
+            seconds: 5
+        },
+        computed: {
+            result () {
+                return this.value < 37 ? 'Aun no llegas a 37' : 'Llegaste!';
+            }
+        },
+        watch: {
+            result () {
+                setTimeout(() => this.value = 0, this.seconds * 1000);
+            }
+        }
+    });
+</script>
+</body>
+</html>

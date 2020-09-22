@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Actividad 3 Vue</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./cards.html">Cards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./slider.html">Sliders</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="container" style="margin-left: 40%; margin-top: 50px;">
+  <div id="exercise">
+    <h2> My hobbies - {{ name }} {{ age }} </h2>
+    <h4> Two of my favorite hobbies </h4>
+    <br>
+  </div>
+    <div class="row">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;" id="cambiarfoto">
+            <img :src="myImage" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"> Hobbies </h5>
+              <p class="card-text">You can see as images of the hobbies I have</p>
+              <a class="btn btn-secondary" @click="myImage = otherImage">Next Image</a>
+            </div>
+          </div>
+    </div>
+    </div>
+</div>
+  
+  
+<div id="hide">
+        <div>
+      <input type="text" v-bind:value="text">
+  </div><br>
+  <button class="btn btn-danger" v-on:click="isHidden = !isHidden">Hide message</button>
+  <p v-if="!isHidden">None of the images shown in this page are of my property</p>
+</div>
+
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#cambiarfoto',
+    data() {
+      return { 
+        myImage: "https://www.nutscomputergraphics.com/wp-content/uploads/2018/02/cover-videogames.jpg?x74525?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*",
+        otherImage: "https://www.enter.co/wp-content/uploads/2018/09/large__original_twitch-branding-package.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=0d3f33fb6aa6e0154b7713a00454c83d",
+        myImage2: "https://i2.wp.com/www.geoawesomeness.com/wp-content/uploads/2017/09/Coding-Geospatial.jpg?ssl=1?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+      }
+    }
+  });
+</script>
+<script>
+  var app = new Vue({
+    el: '#hide',
+    data: {
+      isHidden: false,
+      text: 'Type "I accept"',
+    }
+  })
+</script>
+<script>
+  new Vue({
+    el: '#exercise',
+    data: {
+        name: 'Sergio Tapia',
+        age: 21
+    }
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
