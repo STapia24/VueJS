@@ -30,16 +30,15 @@
     </div>
   </nav>
 
-  <script> var app = new Vue({ el: '#app', data: { message: 'Hello Vue!' } }) </script>
 
 <div class="container" style="margin-left: 40%; margin-top: 50px;">
   <div id="app">
-    <h1> {{message}}</h1>
+    <h1> {{ message }} </h1>
   </div>
   <div id="exercise">
     <h2> My hobbies - {{ name }} {{ age }} </h2>
-    <h4> Two of my favorite hobbies </h4>
-    <br>
+    <h4> Pictures of my hobbies below: </h4>
+    
   </div>
     <div class="row">
       <div class="col-sm">
@@ -57,11 +56,11 @@
   
   
 <div id="hide">
-        <div>
-      <input type="text" v-bind:value="text">
-  </div><br>
   <button class="btn btn-danger" v-on:click="isHidden = !isHidden">Hide message</button>
   <p v-if="!isHidden">None of the images shown in this page are of my property</p>
+          <div>
+      <input type="text" v-bind:value="text">
+  </div>
 </div>
 
 <script src="https://npmcdn.com/vue/dist/vue.js"></script>
@@ -78,12 +77,21 @@
     }
   });
 </script>
+
+<script> var app = new Vue({ 
+  el: '#app', 
+  data: { 
+    message: 'Hello Vue!' 
+    } 
+  }) 
+  </script>
+
 <script>
   var app = new Vue({
     el: '#hide',
     data: {
       isHidden: false,
-      text: 'Type "I accept"',
+      text: 'Type "I understand"',
     }
   })
 </script>
