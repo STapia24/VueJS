@@ -34,15 +34,15 @@
 <div class="container" style="margin-bottom: 30px;">
     <div class="row" style="margin-top: 50px;">
         <div class="col-sm">
-            <div class="card" style="width: 18rem;" id="exercise">
+            <div class="card" style="width: 18rem;">
                 <img src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt5e1d43d2b13e70c7/5f3c847babb6922b67514bfa/TFT_Fates_Header_English_Banner.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title"> More about the videogames I like </h5>
                   <p class="card-text">The games I currently play are:
-                    <ul><li>League of Legends</li><li> Teamfight Tactics</li><li> Valorant </li></ul></p>
-
+                    <ul><li>League of Legends</li><li> Teamfight Tactics</li><li> Valorant </li></ul> <a href="https://www.riotgames.com/en" class="btn btn-danger">Visit Riot Games</a>
                 </div>
               </div>
+
         </div>
         <div class="col-sm">
             <div class="card" style="width: 18rem;">
@@ -50,12 +50,20 @@
                 <div class="card-body">
                   <h5 class="card-title"> More about me </h5>
                   <p class="card-text">More thing in my home page</p>
-                  <a href="./index.html" class="btn btn-primary">Home</a>
+                  <a href="./index.html" class="btn btn-danger">Home</a>
                 </div>
               </div>
         </div>
     </div>
+    <div id="exercise">
+      <br> <h4> How many times is 100 divisible by 5? </h4>
+      <h5 class="card-title">Valor actual: {{ value }}</h5>
+      <button class="btn btn-warning" @click="value -= 5, value2 +=1 "> Divide by 5 </button> 
+      <p>{{ result }}</p>
+  </div>
 </div>
+ 
+  
 <script src="https://npmcdn.com/vue/dist/vue.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -64,17 +72,19 @@
     new Vue({
         el: '#exercise',
         data: {
-            value: 0,
+            value: 100,
+          	value2: 0,
             seconds: 5
         },
         computed: {
             result () {
-                return this.value < 37 ? 'Aun no llegas a 37' : 'Llegaste!';
+                return this.value == 0 ? 'It is Divisible ' + this.value2 + ' times' : 'Been divided ' + this.value2 + ' times';
             }
         },
         watch: {
             result () {
-                setTimeout(() => this.value = 0, this.seconds * 1000);
+                setTimeout(() => this.value = 100, this.seconds * 1000);
+          		setTimeout(() => this.value2 = 0, this.seconds * 1000);
             }
         }
     });
